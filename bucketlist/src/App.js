@@ -7,7 +7,7 @@ import Home from "./components/pages/Home";
 const App = () => (
   <Router>
     <div>
-      <Route exact path="/" component={Home};
+      <Route exact path="/" component={Home}/>
     </div>
   </Router>
 );
