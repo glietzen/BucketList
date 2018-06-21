@@ -13,7 +13,7 @@ let ListSchema = new Schema({
     },
     items: [{
         type: Schema.Types.ObjectId,
-        ref: "Note"
+        ref: "Item"
     }]
 });
 

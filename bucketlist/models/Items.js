@@ -11,10 +11,10 @@ let ItemSchema = new Schema({
         type: String
     },
     completed: {
-        type: true
+        type: Boolean
     },
     completedDate: {
-        type: Date
+        type: String
     }
 })
 
