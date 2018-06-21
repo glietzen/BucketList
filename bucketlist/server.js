@@ -12,6 +12,10 @@ app.use(express.static("client/build"));
 
 // app.use(routes);
 
+app.get('/', (req,res) => {
+  res.status(200).send('hello this is the from server.js')
+})
+
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
 );
