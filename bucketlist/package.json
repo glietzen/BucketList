@@ -4,15 +4,19 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
     "express": "^4.16.3",
     "mongoose": "^5.1.5",
+    "nodemon": "^1.17.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "node server.js",
+    "client": "node scripts/start-bucketlist.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
