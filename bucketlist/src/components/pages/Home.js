@@ -1,8 +1,15 @@
 import React from "react";
+import Nav from "../NavBar/NavBar";
+import Cardlist from "../Cardlist/Cardlist"
 
 const Home = () => (
     <div>
-        <h1>Home</h1>
+        <Nav />
+        <div className="container">
+            <Cardlist />
+            <Cardlist />
+            <Cardlist />
+        </div>
     </div>
 )
 
