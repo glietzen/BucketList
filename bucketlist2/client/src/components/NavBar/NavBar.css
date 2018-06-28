@@ -1,0 +1,33 @@
+.nav-bar {
+    font-family: 'Anton', sans-serif;
+    border-bottom: 2px solid gray;
+    
+}
+
+.nav-item {
+    font-family: 'Lato', sans-serif;
+    float: right;
+}
+
+nav .brand-logo {
+    margin-left: 50px;
+    text-shadow: 2px 2px black;
+    font-family: 'Galada', cursive;
+}
+
+.logo {
+    margin-left: 165px;
+   
+}
+
+@media only screen and (max-width: 991px) {
+   nav .brand-logo {
+        float: right;
+   }
+
+   .logo {
+       margin-left: 350px;
+   }
+
+
+}

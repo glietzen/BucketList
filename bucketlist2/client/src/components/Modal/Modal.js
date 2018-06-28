@@ -1,10 +1,11 @@
 import React from "react";
-import {Modal, Button} from 'react-materialize';
+import {Modal, Button, Icon} from 'react-materialize';
+import './Modal.css';
 
 const ModalForm = () => (
     <Modal
         header='Modal Header'
-        trigger={<Button>Add</Button>}>
+        trigger={<Button><Icon className='addIcon' medium>add</Icon></Button>}>
         <p>Form for API.</p>
     </Modal>
 )
