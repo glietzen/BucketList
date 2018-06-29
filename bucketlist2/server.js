@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 
+const users = require('./routes/api/users');
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -41,5 +43,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
+// USE ROUTES
+app.use('/api/users', users);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
