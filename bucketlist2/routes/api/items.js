@@ -6,4 +6,7 @@ router.route('/:id')
     .put(bucketListController.update)
     .delete(bucketListController.remove);
 
+router.route('/')
+    .put(bucketListController.update)
+
 module.exports = router

@@ -11,7 +11,8 @@ let ItemSchema = new Schema({
         type: String
     },
     completed: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     completedDate: {
         type: String
