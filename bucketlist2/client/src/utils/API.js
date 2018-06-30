@@ -11,7 +11,7 @@ export default {
         return axios.get("/api/lists/")
     },
     deleteItem: function(id) {
-        return axios.delet("/api/items/" + id);
+        return axios.delete("/api/items/" + id);
     },
     saveItem: function(itemData) {
         return axios.post("/api/items", itemData);
