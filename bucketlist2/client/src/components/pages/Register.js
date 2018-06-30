@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {registerUser} from './../../actions/authActions';
 
 class Register extends Component {
 
@@ -20,6 +24,12 @@ class Register extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            this.setState({errors: nextProps.errors});
+        }
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -30,20 +40,27 @@ class Register extends Component {
             password2: this.state.password2
         }
 
-        console.log(newUser);
+        this.props.registerUser(newUser, this.props.history);
+
     }
 
     render() {
+        const {errors} = this.state;
+
         return (
             <div>
                 <h1>Register</h1>
                 <h4>Welcome to Bucket List. Create your account!</h4>
                 <div className="container">
                 <form onSubmit={this.onSubmit}>
-                    <input type="text" className="form-control" placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} />
-                    <input type="text" className="form-control" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
-                    <input type="text" className="form-control" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
-                    <input type="text" className="form-control" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
+                    {errors.name ? errors.name : null}
+                    <input type="text" className="form-control validate" placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} />
+                    {errors.email ? errors.email : null}
+                    <input type="text" className="form-control validate" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
+                    {errors.password ? errors.password : null}
+                    <input type="text" className="form-control validate" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
+                    {errors.password2 ? errors.password2 : null}
+                    <input type="text" className="form-control validate" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
                     <input type="submit" className="btn" />
                 </form>
                 </div>
@@ -52,4 +69,15 @@ class Register extends Component {
     }
 }
 
-export default Register;
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));
