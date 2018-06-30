@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {loginUser} from './../../actions/authActions';
+import Nav from "../NavBar/NavBar";
+
 
 class Login extends Component {
 
@@ -53,6 +55,7 @@ class Login extends Component {
         const {errors} = this.state;
         return (
             <div>
+                <Nav />
                 <h1>Login</h1>
                 <h4>Welcome to Bucket List. Login to your account!</h4>
                 <div className="container">

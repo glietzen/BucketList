@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser} from './../../actions/authActions';
+import Nav from "../NavBar/NavBar";
+
 
 class Register extends Component {
 
@@ -55,6 +57,7 @@ class Register extends Component {
 
         return (
             <div>
+                <Nav />
                 <h1>Register</h1>
                 <h4>Welcome to Bucket List. Create your account!</h4>
                 <div className="container">
