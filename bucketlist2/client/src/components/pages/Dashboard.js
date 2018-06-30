@@ -13,15 +13,29 @@ class Dashboard extends Component {
         }
     }
 
+
     render() {
+
+        const {isAuthenticated} = this.props.auth;
+
+        const authContent = (
+            <div className="container">
+                <Cardlist />
+                <Cardlist />
+                <Cardlist />
+            </div>
+        )
+
+        const guestContent = (
+            <div className="container">
+                <p>You must be logged in to see your bucket list!</p>
+            </div>
+        )
+
         return (
             <div>
                 <Nav />
-                <div className="container">
-                    <Cardlist />
-                    <Cardlist />
-                    <Cardlist />
-                </div>
+                {isAuthenticated ? authContent : guestContent}
             </div>
         )
     }
