@@ -6,9 +6,8 @@ const Home = () => (
     <div>
         <Nav />
         <div className="container">
-            <Cardlist />
-            <Cardlist />
-            <Cardlist />
+             <p>Welcome to Bucket List Page</p>
+
         </div>
     </div>
 )

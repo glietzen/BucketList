@@ -20,6 +20,8 @@ class Nav extends Component {
 
         const authLinks = (
             <span>
+                <NavItem href='get-started.html'><Modalform /></NavItem>
+                <NavItem href='components.html'>Components</NavItem>
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
                 </NavItem>
@@ -30,15 +32,17 @@ class Nav extends Component {
         );
 
         const guestLinks = (
+            <span>
+            <NavItem href="/register">Register</NavItem>
             <NavItem href="/login">
                 Login
             </NavItem>
+            </span>
         );
 
         return(
         <Navbar className= "teal lighten-2" brand='Bucket List' right>
-            <NavItem href='get-started.html'><Modalform /></NavItem>
-            <NavItem href='components.html'>Components</NavItem>
+
             {isAuthenticated ? authLinks : guestLinks}
         </Navbar>
         )
