@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 
+const users = require('./routes/api/users');
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 const bodyParser = require("body-parser");
+const passport = require('passport');
 const mongoose = require("mongoose");
 const Models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,6 +18,11 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bucketlist";
 console.log(MONGODB_URI);
 mongoose.connect(MONGODB_URI);
 const db = mongoose.connection;
+
+app.use(passport.initialize());
+
+// PASSPORT CONFIG
+require('./config/passport')(passport);
 
 app.post('/testpost', (req,res) => {
     let item = new Models.Items({
@@ -41,5 +49,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
+// USE ROUTES
+app.use('/api/users', users);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
