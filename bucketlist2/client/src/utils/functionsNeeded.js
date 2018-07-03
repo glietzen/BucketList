@@ -28,9 +28,11 @@
 
 //     handleNewItemSubmit = event => {
 //         event.preventDefault();
-//         if (...) {
+//         if (!this.state.title || !this.state.location || !this.state.description) {
 //             API.saveItem({
-//                 title: this.state.title
+//                 title: this.state.title,
+//                 location: this.state.location,
+//                 description: this.state.description
 //             })
 //                 .then(res => this.loadList())
 //                 .catch(err => console.log(err));
@@ -45,16 +47,17 @@
 //             .catch(err => console.log(err));
 //     };
 
-//     searchPlace = (place, keyword) => {
+//     searchPlace = (place) => {
 //         API.search(place)
-//             .then((res) => {
-//                 let lat = res.candidates.geometry.location.lat;
-//                 let lng = res.candidates.geometry.location.lng;
-//                 API.placeDetails(lat, lng, keyword)
-//                     .then(result => this.setState({ result: res.results }))
-//                     .catch(err => console.log(err));
-//             }).catch(err => console.log(err));
+//             .then(res => this.findEvent(res.candidates.geometry.location.lat, res.candidates.geometry.location.lng))
+//             .catch(err => console.log(err));
 //     };
+
+//     findEvent = (lat, lng) => {
+//         API.placeDetails(lat, lng, keyword)
+//             .then(res => this.setState({ result: res.results }))
+//             .catch(err => console.log(err));
+//     }
 
 //     handlePlaceSubmit = event => {
 //         event.preventDefault();
