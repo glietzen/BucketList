@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import Home from "./components/pages/Home";
-import Register from './components/pages/Register';
-import Login from './components/pages/Login';
+import Home from "./components/pages/Home/Home.js";
+import Register from './components/pages/Register/Register.js';
+import Login from './components/pages/Login/Login.js';
 import {Provider} from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';

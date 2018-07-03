@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {registerUser} from './../../actions/authActions';
-import Nav from "../NavBar/NavBar";
+import {registerUser} from './../../../actions/authActions';
+import Nav from "../../NavBar/NavBar";
+import './Register.css';
 
 
 class Register extends Component {
@@ -58,18 +59,17 @@ class Register extends Component {
         return (
             <div>
                 <Nav />
-                <h1>Register</h1>
-                <h4>Welcome to Bucket List. Create your account!</h4>
-                <div className="container">
+                <h2>Welcome to Bucket List. Create your account!</h2>
+                <div className="registerContainer">
                 <form onSubmit={this.onSubmit}>
                     {errors.name ? errors.name : null}
-                    <input type="text" className="form-control validate" placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} />
+                    <input type="text" className="form-control text-style validate" placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} />
                     {errors.email ? errors.email : null}
-                    <input type="text" className="form-control validate" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
+                    <input type="text" className="form-control text-style validate" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
                     {errors.password ? errors.password : null}
-                    <input type="text" className="form-control validate" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
+                    <input type="text" className="form-control text-style validate" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
                     {errors.password2 ? errors.password2 : null}
-                    <input type="text" className="form-control validate" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
+                    <input type="text" className="form-control text-style validate" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
                     <input type="submit" className="btn" />
                 </form>
                 </div>
