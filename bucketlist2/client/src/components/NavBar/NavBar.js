@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {logoutUser} from './../../actions/authActions';
 import img from './bucket.png';
 import './NavBar.css';
+import ModalAPI from "../Modal/ModalAPI";
 
 
 

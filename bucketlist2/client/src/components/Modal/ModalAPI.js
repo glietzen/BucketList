@@ -1,34 +1,29 @@
 import React from "react";
-import {Modal, Button, Icon} from 'react-materialize';
-import './Modal.css';
+import { Modal, Button } from 'react-materialize';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import {logoutUser} from './../../actions/authActions';
-import FormCustom from '../CustomForm/FormCustom';
+import ApiForm from '../ApiForm/ApiForm';
 
-class ModalForm extends Component {
+class ModalAPI extends Component {
     render() {
-
-
         const {user} = this.props.auth;
 
         return (
-            <Modal
+            <Modal  
                 header='Modal Header'
-                trigger={<Button><Icon className='addIcon' medium>add</Icon></Button>}>
-                <FormCustom />
+                trigger={<Button>Add Search</Button>}>
+                <ApiForm />
                 <p>{user.name}</p>
                 <p>{user.id}</p>
 
             </Modal>
         )
     }
-
 }
 
-
-ModalForm.propTypes = {
+ModalAPI.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
@@ -38,4 +33,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {logoutUser})(ModalForm);
+export default connect(mapStateToProps, {logoutUser})(ModalAPI);

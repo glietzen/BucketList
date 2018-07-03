@@ -14,7 +14,11 @@ let ListSchema = new Schema({
     items: [{
         type: Schema.Types.ObjectId,
         ref: "Item"
-    }]
+    }],
+    userId: {
+        type: String,
+        required: true
+    }
 });
 
 let List = mongoose.model("List", ListSchema);
