@@ -4,6 +4,9 @@ import Cardlist from "../Cardlist/Cardlist"
 import {Component} from 'react';
 import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
+import Axios from "axios";
+import {logoutUser} from './../../actions/authActions';
+
 
 class Home extends Component {
 
@@ -13,16 +16,28 @@ class Home extends Component {
         }
     }
 
-
     render() {
 
-        const {isAuthenticated} = this.props.auth;
+        let itemsArrary = [];
+
+        let getUserList = (userID) => {
+
+            console.log(userID)
+            Axios.get(`/api/getUserInfo/${userID}`)
+                .then((res) => {
+                    itemsArrary = res.data.list[0].items;
+                    console.log(itemsArrary)
+                });        
+        }
+
+        const {isAuthenticated, user} = this.props.auth;
 
         const authContent = (
             <div className="container">
                 <Cardlist />
                 <Cardlist />
                 <Cardlist />
+                {getUserList(user.id)}
             </div>
         )
 
@@ -42,6 +57,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
@@ -49,4 +65,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, {logoutUser})(Home);

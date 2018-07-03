@@ -5,6 +5,6 @@ router.route("/:id")
     .get(bucketListController.findById);
 
 router.route('/')
-    .put(bucketListController.createList);
+    .post(bucketListController.createList);
 
 module.exports = router;
