@@ -1,12 +1,13 @@
 import React from "react";
-import Nav from "../NavBar/NavBar";
-import Cardlist from "../Cardlist/Cardlist"
+import Nav from "../../NavBar/NavBar";
+import Cardlist from "../../Cardlist/Cardlist";
 import {Component} from 'react';
 import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
+import {Row, Col} from 'react-materialize';
+import './Home.css';
 import Axios from "axios";
-import {logoutUser} from './../../actions/authActions';
-
+import {logoutUser} from './../../../actions/authActions';
 
 class Home extends Component {
 
@@ -16,8 +17,9 @@ class Home extends Component {
         }
     }
 
-    render() {
 
+    render() {
+        
         let itemsArrary = [];
 
         let getUserList = (userID) => {
@@ -34,27 +36,36 @@ class Home extends Component {
         }
 
         const {isAuthenticated, user} = this.props.auth;
-        console.log(user)
 
         const authContent = (
             <div className="container">
-                <Cardlist />
-                <Cardlist />
-                <Cardlist />
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+        
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+        
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
+                <Col s={6} m={6} l={4}><Cardlist /></Col>
                 {user.list ? getUserList(user.list) : null}
             </div>
         )
 
         const guestContent = (
-            <div className="container">
+            <div className="notLoggedContainer">
                 <p>You must be logged in to see your bucket list!</p>
             </div>
         )
 
         return (
-            <div>
+            <div className="background-color">
                 <Nav />
+                    <Row>
                 {isAuthenticated ? authContent : guestContent}
+                    </Row>
             </div>
         )
     }

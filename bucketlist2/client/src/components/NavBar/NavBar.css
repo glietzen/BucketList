@@ -1,0 +1,25 @@
+
+.nav-bar {
+    border-bottom: 1px solid gray;
+    height: 75px;
+}
+
+.nav-item {
+    font-family: 'Lato', sans-serif;
+    float: right;
+    line-height: 75px;
+}
+
+.title {
+    margin-left: 50px;
+    text-shadow: 2px 2px black;
+    font-family: 'Galada', cursive;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+
+@media only screen and (max-width: 744px) {
+
+
+}

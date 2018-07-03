@@ -1,5 +1,6 @@
 import React from "react";
-import { Modal, Button } from 'react-materialize';
+import {Modal, Button, Icon} from 'react-materialize';
+import './Modal.css';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { connect } from 'react-redux';
@@ -9,12 +10,13 @@ import FormCustom from '../CustomForm/FormCustom';
 class ModalForm extends Component {
     render() {
 
+
         const {user} = this.props.auth;
 
         return (
             <Modal
                 header='Modal Header'
-                trigger={<Button>Add Custom</Button>}>
+                trigger={<Button><Icon className='addIcon' medium>add</Icon></Button>}>
                 <FormCustom />
                 <p>{user.name}</p>
                 <p>{user.id}</p>

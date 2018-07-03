@@ -5,7 +5,10 @@ import {Navbar, NavItem} from 'react-materialize';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {logoutUser} from './../../actions/authActions';
+import img from './bucket.png';
+import './NavBar.css';
 import ModalAPI from "../Modal/ModalAPI";
+
 
 
 class Nav extends Component {
@@ -20,21 +23,20 @@ class Nav extends Component {
         const {isAuthenticated, user} = this.props.auth;
 
         const authLinks = (
-            <span>
-                <NavItem><Modalform /></NavItem>
-                <NavItem><ModalAPI /></NavItem>
+            <span className="nav-item">
+                <NavItem href='get-started.html'><Modalform /></NavItem>
                 <NavItem href='components.html'>Components</NavItem>
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
                 </NavItem>
-                <NavItem>
+                <NavItem className="nav-item">
                     {user.name}
                 </NavItem>
             </span>
         );
 
         const guestLinks = (
-            <span>
+            <span className="nav-item">
             <NavItem href="/register">Register</NavItem>
             <NavItem href="/login">
                 Login
@@ -43,8 +45,8 @@ class Nav extends Component {
         );
 
         return(
-        <Navbar className= "teal lighten-2" brand='Bucket List' right>
-
+        <Navbar className="nav-bar teal lighten-2">
+            <span className="title">BucketList<img className="logo" src={img} height="25px" width="25px" /></span>
             {isAuthenticated ? authLinks : guestLinks}
         </Navbar>
         )

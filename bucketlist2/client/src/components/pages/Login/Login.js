@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {loginUser} from './../../actions/authActions';
-import Nav from "../NavBar/NavBar";
+import {loginUser} from './../../../actions/authActions';
+import Nav from "../../NavBar/NavBar";
+import './Login.css';
 
 
 class Login extends Component {
@@ -56,14 +57,14 @@ class Login extends Component {
         return (
             <div>
                 <Nav />
-                <h1>Login</h1>
-                <h4>Welcome to Bucket List. Login to your account!</h4>
-                <div className="container">
+                
+                <h2>Login to your account!</h2>
+                <div className="loginContainer">
                 <form onSubmit={this.onSubmit}>
                     {errors.email ? errors.email : null}
-                    <input type="text" className="form-control" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
+                    <input type="text" className="form-control text-style" placeholder="Email" name="email" value={this.state.email}  onChange={this.onChange} />
                     {errors.password ? errors.password : null}
-                    <input type="text" className="form-control" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
+                    <input type="text" className="form-control text-style" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
                     <input type="submit" className="btn" />
                 </form>
                 </div>
