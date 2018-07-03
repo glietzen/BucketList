@@ -3,7 +3,8 @@ const bucketListController = require("../../controllers/bucketListController");
 
 router.route('/:id')
     .put(bucketListController.update)
-    .delete(bucketListController.remove);
+    .delete(bucketListController.remove)
+    .get(bucketListController.findUser);
 
 router.route('/')
     .post(bucketListController.create);
