@@ -76,7 +76,8 @@ router.post('/login', (req,res) => {
                         // USER MATCHED & CREATE PAYLOAD
                         const payload = {
                             id: user.id,
-                            name: user.name
+                            name: user.name,
+                            list: user.list[0]
                         }
 
                         // SIGN TOKEN

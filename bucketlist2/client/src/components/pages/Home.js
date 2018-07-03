@@ -23,23 +23,25 @@ class Home extends Component {
         let getUserList = (userID) => {
 
             console.log(userID)
-            Axios.get(`/api/getUserInfo/${userID}`)
+            Axios.get(`/api/lists/${userID}`)
                 .then((res) => {
-                    if(res.data.list.length > 0){
-                        itemsArrary = res.data.list[0].items;
+                    console.log(res.data)
+                    // if(res.data.list.length > 0){
+                    //     itemsArrary = res.data.list[0].items;
                         console.log(itemsArrary)
-                    }                    
+                    //}                    
                 });        
         }
 
         const {isAuthenticated, user} = this.props.auth;
+        console.log(user)
 
         const authContent = (
             <div className="container">
                 <Cardlist />
                 <Cardlist />
                 <Cardlist />
-                {getUserList(user.id)}
+                {getUserList(user.list)}
             </div>
         )
 
