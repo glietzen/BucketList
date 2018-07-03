@@ -25,11 +25,11 @@ class Home extends Component {
             console.log(userID)
             Axios.get(`/api/lists/${userID}`)
                 .then((res) => {
-                    console.log(res.data)
-                    if(res.data.list.length > 0){
-                        itemsArrary = res.data.list[0].items;
-                        console.log(itemsArrary)
-                    }                    
+                   if(res.data.items.length > 0) {
+                    console.log(res.data.items.length)
+                    itemsArrary = res.data.items;
+                    console.log(itemsArrary)
+                   } 
                 });        
         }
 
@@ -41,7 +41,7 @@ class Home extends Component {
                 <Cardlist />
                 <Cardlist />
                 <Cardlist />
-                {getUserList(user.list)}
+                {user.list ? getUserList(user.list) : null}
             </div>
         )
 
