@@ -26,10 +26,10 @@ class Home extends Component {
             Axios.get(`/api/lists/${userID}`)
                 .then((res) => {
                     console.log(res.data)
-                    // if(res.data.list.length > 0){
-                    //     itemsArrary = res.data.list[0].items;
+                    if(res.data.list.length > 0){
+                        itemsArrary = res.data.list[0].items;
                         console.log(itemsArrary)
-                    //}                    
+                    }                    
                 });        
         }
 
