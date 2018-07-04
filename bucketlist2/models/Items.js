@@ -21,10 +21,10 @@ let ItemSchema = new Schema({
         default: false
     },
     completedDate: {
-        type: String
+        type: Date
     },
     listId: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true
     }
 })

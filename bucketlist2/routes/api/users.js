@@ -76,7 +76,8 @@ router.post('/login', (req,res) => {
                         // USER MATCHED & CREATE PAYLOAD
                         const payload = {
                             id: user.id,
-                            name: user.name
+                            name: user.name,
+                            list: user.list[0]
                         }
 
                         // SIGN TOKEN
@@ -101,7 +102,8 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req,res)
     res.json({
         id: req.user.id,
         name: req.user.name,
-        email: req.user.email
+        email: req.user.email,
+        list: req.user.list
     });
 })
 
