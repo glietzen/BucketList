@@ -16,7 +16,7 @@ class ModalForm extends Component {
         return (
             <Modal
                 header='Modal Header'
-                trigger={<Button><Icon className='addIcon' medium>add</Icon></Button>}>
+                trigger={<Button>Add Custom</Button>}>
                 <FormCustom />
                 <p>{user.name}</p>
                 <p>{user.id}</p>

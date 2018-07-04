@@ -24,7 +24,8 @@ class Nav extends Component {
 
         const authLinks = (
             <span className="nav-item">
-                <NavItem href='get-started.html'><Modalform /></NavItem>
+                <NavItem><Modalform /></NavItem>
+                <NavItem><ModalAPI /></NavItem>
                 <NavItem href='components.html'>Components</NavItem>
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
