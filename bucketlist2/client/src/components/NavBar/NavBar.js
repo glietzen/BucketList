@@ -5,7 +5,7 @@ import {Navbar, NavItem} from 'react-materialize';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {logoutUser} from './../../actions/authActions';
-import img from './bucket.png';
+import img from './bucket3.png';
 import './NavBar.css';
 import ModalAPI from "../Modal/ModalAPI";
 
@@ -29,7 +29,7 @@ class Nav extends Component {
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
                 </NavItem>
-                <NavItem className="nav-item">
+                <NavItem className="nav-item userStyle">
                     {user.name}
                 </NavItem>
             </span>

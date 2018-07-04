@@ -18,8 +18,23 @@
     line-height: 75px;
 }
 
+.side-nav {
+    background-color: #4db6ac;
+}
 
-@media only screen and (max-width: 744px) {
+.side-nav a {
+    font-size: 25px;
+    margin-right: 150px;
+    color: gray;
+}
 
+
+
+@media only screen and (min-width: 744px) {
+    .title {
+        text-shadow: 2px 2px black,
+                    -1px -1px black;
+        margin-left: 25px;
+    }
 
 }
