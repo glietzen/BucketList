@@ -6,16 +6,26 @@ import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
 import {Row, Col} from 'react-materialize';
 import './Home.css';
+import API from '../../../utils/API'
 import Axios from "axios";
 import {logoutUser} from './../../../actions/authActions';
 
+
 class Home extends Component {
+    state = {
+        listItems: []
+    }
 
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/home')
         }
-    }
+    };
+    loadList = () => {
+        API.getList()
+            .then(res => this.setState({ listItems: res.data }))
+            .catch(err => console.log(err)); 
+    };
 
 
     render() {
@@ -39,18 +49,13 @@ class Home extends Component {
 
         const authContent = (
             <div className="container">
+                <Col s={6} m={6} l={4}>
+                    <Cardlist listItems={this.state.listItems} />
+                </Col>
                 <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-        
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-        
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
-                <Col s={6} m={6} l={4}><Cardlist /></Col>
+
                 {user.list ? getUserList(user.list) : null}
+
             </div>
         )
 
