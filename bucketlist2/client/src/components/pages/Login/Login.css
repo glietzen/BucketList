@@ -2,7 +2,6 @@ h2{
     margin-top: 150px;
     margin-bottom: 50px;
     text-align: center;
-    font-family: 'Bree Serif', serif;
 }
 
 .loginContainer {
@@ -11,8 +10,6 @@ h2{
     padding: 50px;
     border-radius: 10px;
     margin: auto;
-    box-shadow: 1px 1px 5px grey,
-                -1px -1px 5px grey;
 }
 
 body {
