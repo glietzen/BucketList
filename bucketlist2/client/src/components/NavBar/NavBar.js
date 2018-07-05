@@ -37,7 +37,9 @@ class Nav extends Component {
 
         const guestLinks = (
             <span className="nav-item">
-            <NavItem href="/register">Register</NavItem>
+            <NavItem href="/register">
+                Register
+            </NavItem>
             <NavItem href="/login">
                 Login
             </NavItem>

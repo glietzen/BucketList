@@ -10,6 +10,10 @@
     line-height: 75px;
 }
 
+.nav-item a:hover {
+    font-size: 20px;
+}
+
 .title {
     margin-left: 50px;
     text-shadow: 2px 2px black;
@@ -25,11 +29,11 @@
 .side-nav a {
     font-size: 25px;
     margin-right: 150px;
-    color: gray;
+    color: white;
 }
 
 .side-nav a:hover {
-    color: white;
+    color: grey;
 }
 
 
