@@ -3,10 +3,33 @@ import axios from 'axios';
 import setAuthToken from './../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
+
+// CREATE LIST
+export const  createList = (userId, name) => {
+    const newList = {
+        userId: userId,
+        title: name + ' List',
+        items: []
+    }
+    axios.post('/api/lists', newList)
+        .then(res => console.log('Yay!'))
+        .catch(err => console.log(err));
+}
+
+
 // REGISTER USER
 
 export const registerUser = (userData, history) => dispatch => {
     axios.post('/api/users/register', userData)
+        .then(res => 
+            // console.log(res.data.name, res.data._id)
+            axios.post('/api/lists', {
+                userId: res.data._id,
+                title: res.data.name + ' List'
+            })
+                .then(console.log('success'))
+                .catch(err => console.log(err))
+        )
         .then(res => history.push('/login'))
         .catch(err => dispatch({
             type: GET_ERRORS,
