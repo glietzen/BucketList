@@ -1,5 +1,5 @@
 import React from "react";
-import {Modal, Button, Icon} from 'react-materialize';
+import {Modal, Button, Icon, Input, Row} from 'react-materialize';
 import './Modal.css';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
@@ -14,7 +14,8 @@ class ModalForm extends Component {
         this.state = {
             title: '',
             description: '',
-            listId: ''
+            listId: '',
+            location: ''
         }
     
         this.onChange = this.onChange.bind(this);
@@ -35,7 +36,7 @@ class ModalForm extends Component {
         }
         Axios.post('api/items', itemData)
             .then(res => console.log(res))
-            // ADD PROPS HERE .then()
+            .then(() => this.props.getUserList(this.props.auth.user.list))
             .catch(err => console.log(err));
     }
 
@@ -51,14 +52,16 @@ class ModalForm extends Component {
             <Modal
                 header='Modal Header'
                 trigger={<Button><Icon className='addIcon' medium>add</Icon></Button>}>
-                <form onSubmit={this.onSubmit}>
-                    <input type="text" name="title" placeholder="title" onChange={this.onChange} value={this.state.title}/>
-                    <input type="text" onChange={this.onChange} name="description" placeholder="description" value={this.state.description}/>
-                    <input type="text" name="listId" value={user.list} />
-                    <button type="submit">Submit</button>
-                </form>
-                <p>{user.name}</p>
-                <p>{user.id}</p>
+                <Row>    
+                    <form onSubmit={this.onSubmit}>
+                        <Input s={6} label='Title' type="text" name="title" onChange={this.onChange} value={this.state.title}/>
+                        <Input s={6} label='Location' type="text" onChange={this.onChange} name="location" value={this.state.location}/>
+                        <Input s={12} label='Description' type="textarea" onChange={this.onChange} name="description" value={this.state.description}/>
+                        <Input type="hidden" name="listId" value={user.list} />
+                        <Button type="submit">Submit</Button>
+                    </form>
+                </Row>
+ 
 
             </Modal>
         )

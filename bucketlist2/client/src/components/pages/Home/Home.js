@@ -77,10 +77,8 @@ class Home extends Component {
         return (
             <div className="background-color">
                 <Nav 
-                    handleNewItemSubmit={this.handleNewItemSubmit} 
-                    title={this.state.title}
-                    location={this.state.location}
-                    description={this.state.description}   
+                    getUserList={this.getUserList} 
+                     
                 />
                     <Row>
                 {isAuthenticated ? authContent : guestContent}

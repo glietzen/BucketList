@@ -13,6 +13,7 @@ import ModalAPI from "../Modal/ModalAPI";
 
 class Nav extends Component {
 
+
     onLogoutClick(e) {
         e.preventDefault();
         this.props.logoutUser();
@@ -24,7 +25,11 @@ class Nav extends Component {
 
         const authLinks = (
             <span className="nav-item">
-                <NavItem href='get-started.html'><Modalform /></NavItem>
+                <NavItem href='get-started.html'>
+                    <Modalform 
+                        getUserList={this.props.getUserList}
+                    />
+                </NavItem>
                 <NavItem href='components.html'>Components</NavItem>
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
