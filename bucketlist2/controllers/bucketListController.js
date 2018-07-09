@@ -49,7 +49,7 @@ module.exports = {
     },
     update: function(req, res) {
         db.Items
-            .findOneAndUpdate({_id: req.params.id }, req.body)
+            .findOneAndUpdate({_id: req.params.id }, { completed: true })
             .then(dbItem => res.json(dbItem))
             .catch(err => res.status(422).json(err));
     },

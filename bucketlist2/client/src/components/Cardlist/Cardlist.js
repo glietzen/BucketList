@@ -4,7 +4,7 @@ import './Cardlist.css';
 import img from './image.jpg';
 import imgComp from './completed.jpg';
 import DeleteBtn from '../DeleteBtn/DeleteBtn';
-
+import CompleteBtn from '../CompleteBtn/CompleteBtn';
 
 
 const Cardlist = props => (
@@ -15,7 +15,9 @@ const Cardlist = props => (
                     
                     title={result.title}
                     reveal={<p>{result.description ? result.description : "No description"}<br></br>
-                        <DeleteBtn onClick={() => props.deleteItem(result._id)} /></p>}>
+                        <DeleteBtn onClick={() => props.deleteItem(result._id)} /><br></br>
+                        <CompleteBtn onClick={() => props.completeItem(result._id)} />
+                        </p>}>
                     <p>{result.location}</p>
                     
                 </Card>

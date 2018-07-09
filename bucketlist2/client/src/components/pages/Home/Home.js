@@ -48,7 +48,7 @@ class Home extends Component {
     };
 
     completeItem = id => {
-        
+
         API.completeItem(id)
             .then(res => this.getUserList(this.props.auth.user.list))
             .catch(err => console.log(err));
@@ -64,6 +64,7 @@ class Home extends Component {
                 <Cardlist 
                     itemsArray={this.state.itemsArray}
                     deleteItem={this.deleteItem}
+                    completeItem={this.completeItem}
                 /> 
             </div>
         )
