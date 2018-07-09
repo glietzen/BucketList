@@ -30,7 +30,6 @@ class Nav extends Component {
                         getUserList={this.props.getUserList}
                     />
                 </NavItem>
-                <NavItem href='components.html'>Components</NavItem>
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
                 </NavItem>

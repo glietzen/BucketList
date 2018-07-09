@@ -23,7 +23,6 @@ class Home extends Component {
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/home')
-            console.log(this.props.auth.user.list);
             
             this.props.auth.user.list ? this.getUserList(this.props.auth.user.list) : null;
 

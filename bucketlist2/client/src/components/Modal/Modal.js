@@ -37,6 +37,11 @@ class ModalForm extends Component {
         Axios.post('api/items', itemData)
             .then(res => console.log(res))
             .then(() => this.props.getUserList(this.props.auth.user.list))
+            .then(this.setState({
+                title: '',
+                description: '',
+                location: ''
+            }))
             .catch(err => console.log(err));
     }
 

@@ -69,7 +69,7 @@ class Register extends Component {
                     {errors.password ? errors.password : null}
                     <input type="text" className="form-control text-style validate" placeholder="Password" name="password" value={this.state.password}  onChange={this.onChange} />
                     {errors.password2 ? errors.password2 : null}
-                    <input type="text" className="form-control text-style validate" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
+                    <input type="password" className="form-control text-style validate" placeholder="Confirm Password" name="password2" value={this.state.password2}  onChange={this.onChange} />
                     <input type="submit" className="btn" />
                 </form>
                 </div>

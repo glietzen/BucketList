@@ -22,13 +22,10 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
-        console.log(req.body)
         db.Items
             .create(req.body)
             .then((listitem) => {
                 let listID = req.body.listId;
-                console.log(listID)
-                console.log(listitem._id)
                 return db.Lists.findByIdAndUpdate(listID, {$push: {items: listitem._id}}, {new: true})
             })
             .then(dbItem => res.json(dbItem))
@@ -38,10 +35,7 @@ module.exports = {
         db.Lists
             .create(req.body)
             .then((userList) => {
-                console.log(req.body)
                 let __id__ = req.body.userId;
-                console.log(userList.id)
-                console.log(__id__)
                 return db.Users.findByIdAndUpdate(__id__, {$push: {list: userList._id}}, {new:true})
             })
             .then(dbItem => res.json(dbItem))
