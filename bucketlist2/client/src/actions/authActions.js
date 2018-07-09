@@ -22,7 +22,6 @@ export const  createList = (userId, name) => {
 export const registerUser = (userData, history) => dispatch => {
     axios.post('/api/users/register', userData)
         .then(res => 
-            // console.log(res.data.name, res.data._id)
             axios.post('/api/lists', {
                 userId: res.data._id,
                 title: res.data.name + ' List'
