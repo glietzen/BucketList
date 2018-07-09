@@ -1,33 +1,30 @@
 .nav-bar {
     font-family: 'Anton', sans-serif;
-    border-bottom: 2px solid gray;
-    
+    border-bottom: 1px solid gray;
+    height: 75px;
 }
 
 .nav-item {
     font-family: 'Lato', sans-serif;
     float: right;
+    line-height: 75px;
 }
 
-nav .brand-logo {
+.title {
     margin-left: 50px;
     text-shadow: 2px 2px black;
     font-family: 'Galada', cursive;
+    font-size: 50px;
+    line-height: 75px;
 }
 
-.logo {
-    margin-left: 165px;
+div > span > .logo {
+    margin-left: 195px;
+    
    
 }
 
-@media only screen and (max-width: 991px) {
-   nav .brand-logo {
-        float: right;
-   }
-
-   .logo {
-       margin-left: 350px;
-   }
+@media only screen and (max-width: 744px) {
 
 
 }
