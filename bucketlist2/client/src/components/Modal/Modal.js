@@ -32,6 +32,7 @@ class ModalForm extends Component {
         const itemData = {
             title: this.state.title,
             description: this.state.description,
+            location: this.state.location,
             listId: this.props.auth.user.list
         }
         Axios.post('api/items', itemData)

@@ -14,9 +14,7 @@ class Home extends Component {
     
     state = {
         itemsArray: [],
-        title: '',
-        location: '',
-        description: ''
+
     }
     
 
@@ -31,7 +29,8 @@ class Home extends Component {
     getUserList = (userID) => {
         Axios.get(`/api/lists/${userID}`)
             .then((res) => {
-               if(res.data.items.length > 0) {
+                console.log(res.data.items);
+                if(res.data.items.length > 0) {
                     this.setState({
                         itemsArray: res.data.items
                     });
@@ -40,19 +39,19 @@ class Home extends Component {
             .catch(err => console.log(err));        
     };
 
-    handleNewItemSubmit = event => {
-        event.preventDefault();
-        if (!this.state.title || !this.state.location || !this.state.description) {
-            API.saveItem({
-                title: this.state.title,
-                location: this.state.location,
-                description: this.state.description
-            })
-                .then(res => this.getUserList(this.props.auth.user.list))
-                .catch(err => console.log(err));
-        }
+    deleteItem = id => {
+        console.log('one');
+        API.deleteItem(id)
+            .then(res => this.getUserList(this.props.auth.user.list))
+            .catch(err => console.log(err));
     };
 
+    completeItem = id => {
+
+        API.completeItem(id)
+            .then(res => this.getUserList(this.props.auth.user.list))
+            .catch(err => console.log(err));
+    }
 
     render() {
     
@@ -63,6 +62,8 @@ class Home extends Component {
             <div className="container">
                 <Cardlist 
                     itemsArray={this.state.itemsArray}
+                    deleteItem={this.deleteItem}
+                    completeItem={this.completeItem}
                 /> 
             </div>
         )
