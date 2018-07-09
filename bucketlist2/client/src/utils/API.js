@@ -16,6 +16,9 @@ export default {
     saveItem: function(itemData) {
         return axios.post("/api/items", itemData);
     },
+    completeItem: function(id) {
+        return axios.update("/api/items" + id);
+    },
     search: function(place) {
         return axios.get(BaseURL1 + place + BaseURL2 + APIKey)
     },
