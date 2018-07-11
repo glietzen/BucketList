@@ -40,15 +40,23 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
+// if (process.env.NODE_ENV === 'production') {
+//   // Serve any static files
+//   app.use(express.static(path.join(__dirname, 'client/build')));
 
-  // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//   // Handle React routing, return all requests to React app
+//   app.get('*', function(req, res) {
+//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//   });
+// }
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build')); // serve the static react app
+  app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
   });
-}
+  console.log('Serving React App...');
+};
 
 // USE ROUTES
 app.use('/api/users', users);
