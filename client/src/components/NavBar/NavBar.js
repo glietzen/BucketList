@@ -29,7 +29,13 @@ class Nav extends Component {
                     <Modalform 
                         getUserList={this.props.getUserList}
                     />
+                    
                 </NavItem>
+                <NavItem href='get-started.html'>
+                    <ModalAPI
+                        handlePlaceSubmit={this.props.handlePlaceSubmit}
+                    />
+                </NavItem>                
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
                     Logout
                 </NavItem>

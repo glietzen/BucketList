@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import {logoutUser} from './../../actions/authActions';
-import FormCustom from '../CustomForm/FormCustom';
 import Axios from "axios";
 
 class ModalForm extends Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button } from 'react-materialize';
+import { Modal, Button, Icon } from 'react-materialize';
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { connect } from 'react-redux';
@@ -13,8 +13,10 @@ class ModalAPI extends Component {
         return (
             <Modal  
                 header='Modal Header'
-                trigger={<Button>Add Search</Button>}>
-                <ApiForm />
+                trigger={<Button><Icon className='addIcon' medium>search</Icon></Button>}>
+                <ApiForm 
+                    handlePlaceSubmit={this.props.handlePlaceSubmit}
+                />
                 <p>{user.name}</p>
                 <p>{user.id}</p>
 

@@ -14,7 +14,9 @@ class Home extends Component {
     
     state = {
         itemsArray: [],
-
+        place: '',
+        keyword: '',
+        result: {}
     }
     
 
@@ -51,7 +53,28 @@ class Home extends Component {
         API.completeItem(id)
             .then(res => this.getUserList(this.props.auth.user.list))
             .catch(err => console.log(err));
+    };
+    
+    handlePlaceSubmit = e => {
+        e.preventDefault();
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        this.searchPlace(this.state.place, this.state.keyword);
+    };
+
+    searchPlace = (place,) => {
+        API.search(place)
+            .then(res => this.findEvent(res.candidates.geometry.location.lat, res.candidates.geometry.location.lng))
+            .catch(err => console.log(err));
+    }; 
+
+    findEvent = (lat, lng) => {
+        API.placeDetails(lat, lng, this.state.keyword)
+            .then(res => this.setState({ result: res.results }))
+            .catch(err => console.log(err));
     }
+   
 
     render() {
     
@@ -78,7 +101,7 @@ class Home extends Component {
             <div className="background-color">
                 <Nav 
                     getUserList={this.getUserList} 
-                     
+                    handlePlaceSubmit={this.handlePlaceSubmit}
                 />
                     <Row>
                 {isAuthenticated ? authContent : guestContent}
