@@ -25,7 +25,7 @@ class Nav extends Component {
 
         const authLinks = (
             <span className="nav-item">
-                <NavItem href='get-started.html'>
+                <NavItem className='addBtn' href='get-started.html'>
                     <Modalform 
                         getUserList={this.props.getUserList}
                     />

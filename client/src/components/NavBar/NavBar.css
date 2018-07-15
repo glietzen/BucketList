@@ -1,13 +1,14 @@
 
 .nav-bar {
     border-bottom: 1px solid gray;
-    height: 75px;
+    height: 100px;
+    
 }
 
 .nav-item {
     font-family: 'Lato', sans-serif;
     float: right;
-    line-height: 75px;
+    line-height: 100px;
 }
 
 .nav-item a:hover {
@@ -17,9 +18,9 @@
 .title {
     margin-left: 50px;
     text-shadow: 2px 2px black;
-    font-family: 'Galada', cursive;
-    font-size: 50px;
-    line-height: 75px;
+    font-family: 'Galada';
+    font-size: 60px;
+    line-height: 100px;
 }
 
 .side-nav {
@@ -36,13 +37,28 @@
     color: grey;
 }
 
+nav ul a {
+    font-size: 1.2rem;
+}
 
+.addBtn .btn {
+    background-color: rgb(11, 66, 54);
+}
+
+nav .button-collapse i {
+    line-height: 100px !important;
+}
 
 @media only screen and (min-width: 744px) {
     .title {
         text-shadow: 2px 2px black,
                     -1px -1px black;
-        margin-left: 25px;
+        margin-left: 10px;
     }
+}
 
+@media only screen and (min-width: 418px) {
+    .title {
+        margin-left: 15px;
+    }
 }

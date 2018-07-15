@@ -1,8 +1,9 @@
 import React from 'react';
 import {Button, Icon} from 'react-materialize';
+import './DeleteBtn.css';
 
 const DeleteBtn = props => (
-    <Button {...props} waves='light'>Delete<Icon left>delete</Icon></Button>
+    <Button {...props} className='DeleteBtn' waves='light'><Icon center>delete</Icon></Button>
 );
 
 export default DeleteBtn

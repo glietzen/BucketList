@@ -4,11 +4,13 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./components/pages/Home/Home.js";
 import Register from './components/pages/Register/Register.js';
 import Login from './components/pages/Login/Login.js';
+import Landing from './components/pages/Landing/Landing.js';
 import {Provider} from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import {setCurrentUser, logoutUser} from './actions/authActions'
+
 
 // CHECK FOR TOKEN
 if(localStorage.jwtToken) {
@@ -33,7 +35,7 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/landing" component={Landing}/>
         <Route exact path="/home" component={Home}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>

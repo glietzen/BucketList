@@ -10,13 +10,13 @@ import CompleteBtn from '../CompleteBtn/CompleteBtn';
 const Cardlist = props => (
     <div>
         {props.itemsArray ? props.itemsArray.map(result => (
-            <Col key={result._id} s={6} m={6} l={4}>
+            <Col key={result._id} s={12} m={6} l={4}>
                 <Card className='card' header={<CardTitle reveal image={!result.completed ? img : imgComp} className='places' waves='light'/>}
                     
                     title={result.title}
                     reveal={<p>{result.description ? result.description : "No description"}<br></br>
-                        <DeleteBtn onClick={() => props.deleteItem(result._id)} /><br></br>
-                        <CompleteBtn onClick={() => props.completeItem(result._id)} />
+                        <CompleteBtn onClick={() => props.completeItem(result._id)} /><br></br>
+                        <DeleteBtn onClick={() => props.deleteItem(result._id)} />
                         </p>}>
                     <p>{result.location}</p>
                     

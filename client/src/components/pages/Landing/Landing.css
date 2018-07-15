@@ -1,0 +1,24 @@
+.landingContainer {
+    margin: 15px;
+    box-shadow: 10px 10px 50px black,
+                -10px -10px 50px black;
+    
+}
+
+.Row img {
+    height: 294px;
+    width: 496px;
+    box-shadow: 2px 2px 50px black,
+                -2px -2px 50px black;
+    opacity: 0.5;
+    z-index: -1;
+    position: relative;
+}
+
+.Card {
+    position: relative;
+    z-index: 0;
+    width: 50%;
+    height: 50%;
+}
+
