@@ -32,22 +32,22 @@ class Landing extends Component {
                 <div className="Row">
                 
                         <Row>
-                            <Col s={1} l={3}><img src={img1} className= 'image' alt='plane' /></Col>
-                            <Col s={1} l={3}><img src={img2} className= 'image' alt='buds' /></Col>
-                            <Col s={1} l={3}><img src={img3} className= 'image' alt='couple' /></Col>
-                            <Col s={1} l={3}><img src={img4} className= 'image' alt='family' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img1} className= 'image' alt='plane' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img2} className= 'image' alt='buds' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img3} className= 'image' alt='couple' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img4} className= 'image' alt='family' /></Col>
                         </Row>
                         <Row>
-                            <Col s={1} l={3}><img src={img5} className= 'image' alt='macchu' /></Col>
-                            <Col s={1} l={3}><img src={img6} className= 'image' alt='moreBuds'/></Col>
-                            <Col s={1} l={3}><img src={img7} className= 'image' alt='river' /></Col>
-                            <Col s={1} l={3}><img src={img8} className= 'image' alt='stock'/></Col>
+                            <Col s={1} m={2} l={3}><img src={img5} className= 'image' alt='macchu' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img6} className= 'image' alt='moreBuds'/></Col>
+                            <Col s={1} m={2} l={3}><img src={img7} className= 'image' alt='river' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img8} className= 'image' alt='stock'/></Col>
                         </Row>
                         <Row>
-                            <Col s={1} l={3}><img src={img9} className= 'image' alt='templeBuds'/></Col>
-                            <Col s={1} l={3}><img src={img10} className= 'image' alt='multiBuds' /></Col>
-                            <Col s={1} l={3}><img src={img11} className= 'image' alt='Buds3' /></Col>
-                            <Col s={1} l={3}><img src={img12} className= 'image' alt='scenery' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img9} className= 'image' alt='templeBuds'/></Col>
+                            <Col s={1} m={2} l={3}><img src={img10} className= 'image' alt='multiBuds' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img11} className= 'image' alt='Buds3' /></Col>
+                            <Col s={1} m={2} l={3}><img src={img12} className= 'image' alt='scenery' /></Col>
                         </Row>
                         </div>
                 
