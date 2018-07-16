@@ -11,14 +11,15 @@ import {logoutUser} from './../../../actions/authActions';
 import API from '../../../utils/API';
 
 class Home extends Component {
-    
-    state = {
-        itemsArray: [],
-        place: '',
-        keyword: '',
-        result: {}
+    constructor() {
+        super();
+        this.state = {
+            itemsArray: [],
+            place: '',
+            keyword: '',
+            result: {}
+        }
     }
-    
 
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
@@ -54,24 +55,18 @@ class Home extends Component {
             .then(res => this.getUserList(this.props.auth.user.list))
             .catch(err => console.log(err));
     };
-    
-    handlePlaceSubmit = e => {
-        e.preventDefault();
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-        this.searchPlace(this.state.place, this.state.keyword);
-    };
 
-    searchPlace = (place,) => {
+    searchPlace = (place, keyword) => {
         API.search(place)
-            .then(res => this.findEvent(res.candidates.geometry.location.lat, res.candidates.geometry.location.lng))
+            // .then(res => console.log(res))
+            .then(res => this.findEvent(res.data.candidates[0].geometry.location.lat, res.data.candidates[0].geometry.location.lng, keyword))
             .catch(err => console.log(err));
     }; 
 
-    findEvent = (lat, lng) => {
-        API.placeDetails(lat, lng, this.state.keyword)
-            .then(res => this.setState({ result: res.results }))
+    findEvent = (lat, lng, keyword) => {
+        API.placeDetails(lat, lng, keyword)
+            .then(res => console.log(res.data.results))
+            .then(res => this.setState({ result: res.data.results }))
             .catch(err => console.log(err));
     }
    
@@ -101,7 +96,8 @@ class Home extends Component {
             <div className="background-color">
                 <Nav 
                     getUserList={this.getUserList} 
-                    handlePlaceSubmit={this.handlePlaceSubmit}
+                    searchPlace={this.searchPlace}
+                    result={this.state.result}
                 />
                     <Row>
                 {isAuthenticated ? authContent : guestContent}

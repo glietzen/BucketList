@@ -8,18 +8,14 @@ import ApiForm from '../ApiForm/ApiForm';
 
 class ModalAPI extends Component {
     render() {
-        const {user} = this.props.auth;
-
         return (
             <Modal  
-                header='Modal Header'
+                header='Search for A Bucket List Item'
                 trigger={<Button><Icon className='addIcon' medium>search</Icon></Button>}>
                 <ApiForm 
-                    handlePlaceSubmit={this.props.handlePlaceSubmit}
+                    searchPlace={this.props.searchPlace}
+                    result={this.props.result}
                 />
-                <p>{user.name}</p>
-                <p>{user.id}</p>
-
             </Modal>
         )
     }

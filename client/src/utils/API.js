@@ -23,6 +23,6 @@ export default {
         return axios.get(BaseURL1 + place + BaseURL2 + APIKey)
     },
     placeDetails: function(lat, lng, keyword) {
-        return axios.get(BaseURL3 + lat + lng + BaseURL4 + keyword + BaseURL5 + APIKey)
+        return axios.get(BaseURL3 + lat + ',' + lng + BaseURL4 + keyword + BaseURL5 + APIKey)
     }
 };

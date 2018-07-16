@@ -33,7 +33,8 @@ class Nav extends Component {
                 </NavItem>
                 <NavItem href='get-started.html'>
                     <ModalAPI
-                        handlePlaceSubmit={this.props.handlePlaceSubmit}
+                        searchPlace={this.props.searchPlace}
+                        result={this.props.result}
                     />
                 </NavItem>                
                 <NavItem href="#" onClick={this.onLogoutClick.bind(this)}>
